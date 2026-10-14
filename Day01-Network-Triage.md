@@ -21,3 +21,15 @@ Conducted baseline packet capture and protocol inspection on host `192.168.1.15`
 
 ## 4. Remediation / SOC Action
 - In an enterprise environment, flag P2P software execution under Acceptable Use Policy (AUP) and block non-standard outbound high-port P2P traffic at the perimeter firewall.
+- ## 5. Evidence Screenshots
+### DNS Resolution & CNAME Inspection
+![DNS Triage](Screenshot%20(139).png)
+
+### TCP SYN Filtering
+![SYN Filter](Screenshot%20(140).png)
+
+### Full 3-Way Handshake & Plaintext SNI Extraction (Stream 32)
+![Stream 32](Screenshot%20(141).png)
+
+### TCP Conversations Matrix (100% Unanswered High-Port SYNs)
+![Conversations Matrix](Screenshot%20(142).png)
