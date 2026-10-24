@@ -6,10 +6,10 @@ Simulated a network-based brute-force authentication attack targeting a local SM
 ## 2. Key Telemetry Findings (Windows Security Log)
 
 ### Failed Logon Details (Event ID 4625)
-- **Targeted Account:** [Insert Account Name, e.g., Administrator]
-- **Logon Type:** [Insert Logon Type, e.g., 3 - Network]
-- **Failure Status Code:** [Insert Status / Sub Status, e.g., 0xC000006D / 0xC000006A]
-- **Source IP Address:** [Insert Source Network Address, e.g., 127.0.0.1]
+- **Targeted Account:** 	Administrator
+- **Logon Type:** 3
+- **Failure Status Code:** Status:	0xC000006D	Sub Status:		0xC000006A
+- **Source IP Address:** 127.0.0.1
 - **Event Frequency:** 3 failed attempts within a 10-second window.
 
 ## 3. Threat Hunting & SOC Context
