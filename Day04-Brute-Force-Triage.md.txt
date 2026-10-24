@@ -1,0 +1,23 @@
+# SOC Incident Triage Report — Day 04 (Authentication Attacks & Brute Force)
+
+## 1. Executive Summary
+Simulated a network-based brute-force authentication attack targeting a local SMB share. Utilized Windows Event Viewer to filter, isolate, and extract malicious logon failures to build a threat profile based on Event ID 4625.
+
+## 2. Key Telemetry Findings (Windows Security Log)
+
+### Failed Logon Details (Event ID 4625)
+- **Targeted Account:** [Insert Account Name, e.g., Administrator]
+- **Logon Type:** [Insert Logon Type, e.g., 3 - Network]
+- **Failure Status Code:** [Insert Status / Sub Status, e.g., 0xC000006D / 0xC000006A]
+- **Source IP Address:** [Insert Source Network Address, e.g., 127.0.0.1]
+- **Event Frequency:** 3 failed attempts within a 10-second window.
+
+## 3. Threat Hunting & SOC Context
+- **Technique Mapped:** MITRE ATT&CK T1110 (Brute Force) & T1078 (Valid Accounts).
+- **Detection Logic:** Attackers automate authentication attempts against exposed services (RDP/SMB). A SOC detects this by establishing a threshold (e.g., >5 Event ID 4625s from a single Source IP within 5 minutes). 
+- **Logon Type Context:** Logon Type 3 (Network) indicates remote targeting, whereas Logon Type 10 (RemoteInteractive) specifically flags RDP brute-forcing.
+
+## 4. Remediation & Best Practices
+- Implement Account Lockout Policies (e.g., lock account for 30 minutes after 5 failed attempts).
+- Enforce Multi-Factor Authentication (MFA) on all network-facing services.
+- Route Event ID 4625 to the SIEM to automate brute-force threshold alerting.
