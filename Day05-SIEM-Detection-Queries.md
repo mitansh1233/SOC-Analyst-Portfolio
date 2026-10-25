@@ -27,7 +27,8 @@ Validated the core SIEM detection engineering pipeline (**Filter -> Aggregate ->
     | where result == "Failed Login"
     | summarize FailedAttempts = count() by src_ip
     | where FailedAttempts >= 5
-
+![Brute Force KQL Results](Screenshot%202026-10-25%20210907.png)
+![Process Events KQL Results](Screenshot%202026-10-25%20211649.png)
 ### Live Telemetry Findings (6 Offending IPs Isolated)
 | Source IP (`src_ip`) | Failed Attempts (`FailedAttempts`) | Triage Verdict |
 | :--- | :--- | :--- |
